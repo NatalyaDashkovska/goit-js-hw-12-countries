@@ -6,7 +6,13 @@ import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
 
 function insertList(country_list) {
-  if (country_list.length > 10) {
+  if (!country_list.length) {
+    error({
+      title: 'Данных не найдено',
+      text: 'Проверьте свой запрос',
+    });
+    return;
+  } else if (country_list.length > 10) {
     error({
       title: 'Найдено слишком много совпадений',
       text: 'Введите более конкретные данные',
